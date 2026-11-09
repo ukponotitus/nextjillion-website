@@ -1,0 +1,10 @@
+{
+  "description": "Explore Nextjillion’s software and AI solutions, discover its Mindra product, and browse practical technology courses for businesses and aspiring professionals.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
