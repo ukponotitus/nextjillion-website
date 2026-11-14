@@ -1,7 +1,14 @@
 {
+  "title": "Nextjillion — Building Technology. Developing People.",
   "description": "Explore Nextjillion’s software and AI solutions, discover its Mindra product, and browse practical technology courses for businesses and aspiring professionals.",
   "robots": {
-    "index": false
+    "index": true
+  },
+  "icons": {
+    "icon": "/favicon.png?v=2"
+  },
+  "openGraph": {
+    "image": "/brand/nextjillion-logo.png"
   },
   "accessibility": {
     "addBypassLinks": false,
