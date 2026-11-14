@@ -1,0 +1,9 @@
+User-agent: Googlebot
+Allow: /
+Disallow:
+
+User-agent: *
+Allow: /
+Disallow:
+
+Sitemap: https://nextjillion.com/sitemap.xml

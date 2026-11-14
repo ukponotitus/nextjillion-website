@@ -200,28 +200,14 @@ const nav = [
 function Logo({ light = false }: { light?: boolean }) {
   return (
     <a className={`logo ${light ? "logo-light" : ""}`} href="/" aria-label="Nextjillion home">
-      <svg className="logo-symbol" viewBox="0 0 58 48" aria-hidden="true">
-        <defs>
-          <linearGradient id="nextjillion-a" x1="5" y1="7" x2="49" y2="42">
-            <stop stopColor="#6D00FF" />
-            <stop offset="0.55" stopColor="#5147E5" />
-            <stop offset="1" stopColor="#244CCB" />
-          </linearGradient>
-          <linearGradient id="nextjillion-b" x1="45" y1="3" x2="20" y2="45">
-            <stop stopColor="#11C5E8" />
-            <stop offset="0.5" stopColor="#267CEC" />
-            <stop offset="1" stopColor="#5147E5" />
-          </linearGradient>
-        </defs>
-        <path
-          d="M4 36V17.5c0-4 1.4-6.8 4.3-8.5 3-1.7 6-.9 8.7 2l23 25H27L12.5 20.4V36H4Z"
-          fill="url(#nextjillion-a)"
-        />
-        <path
-          d="M54 11.5V31c0 4.4-1.6 7.4-4.9 8.9-3.2 1.5-6.2.5-9-2.5L17.5 12.8h13L45.5 29V13.7L54 11.5Z"
-          fill="url(#nextjillion-b)"
-        />
-      </svg>
+      <img
+        className="logo-symbol"
+        src="/brand/nextjillion-icon.png"
+        alt=""
+        width="44"
+        height="32"
+      />
+      <span className="logo-divider" aria-hidden="true" />
       <span>NEXTJILLION</span>
     </a>
   );
@@ -497,7 +483,9 @@ function TechVisual() {
         </div>
         <div className="system-shell">
           <aside>
-            <div className="system-logo">N</div>
+            <div className="system-logo">
+              <img src="/brand/nextjillion-icon.png" alt="" />
+            </div>
             {["Overview", "Architecture", "Experience", "Delivery"].map((item, index) => (
               <span className={index === 1 ? "selected" : ""} key={item}>
                 <i />
@@ -559,7 +547,9 @@ function TechVisual() {
       >
         <div className="mobile-speaker" />
         <div className="mobile-app-head">
-          <div className="mobile-app-logo">N</div>
+          <div className="mobile-app-logo">
+            <img src="/brand/nextjillion-icon.png" alt="" />
+          </div>
           <span>
             <small>MOBILE WORKSPACE</small>
             <b>Project overview</b>
@@ -814,8 +804,8 @@ function Footer() {
             <a href="https://mindra.online" target="_blank" rel="noreferrer">
               Mindra ↗
             </a>
-            <h4 className="footer-sub">Connect</h4>
-            <span>Contact details coming soon</span>
+            <h4 className="footer-sub">Address</h4>
+            <span>Okada Junction, Katampe1 Mpape, Amac, Abuja, FCT</span>
           </div>
         </div>
         <div className="footer-bottom">
@@ -1740,10 +1730,10 @@ function Contact() {
                 later.
               </p>
               <div className="contact-note">
-                <Icon name="mail" />
+                <Icon name="compass" />
                 <div>
-                  <b>Contact details</b>
-                  <span>Official email and address will be added when supplied.</span>
+                  <b>Registered company address</b>
+                  <span>Okada Junction, Katampe1 Mpape, Amac, Abuja, FCT</span>
                 </div>
               </div>
             </div>
@@ -1840,16 +1830,17 @@ function App() {
   const { scrollYProgress } = useScroll();
   const progressScale = useSpring(scrollYProgress, { stiffness: 130, damping: 24, mass: 0.25 });
   useEffect(() => {
-    const pageName =
-      path === "/"
-        ? "Building Technology. Developing People."
-        : path.startsWith("/academy/courses/")
-          ? "Course Details"
-          : path
-              .split("/")
-              .filter(Boolean)
-              .map((part) => part[0].toUpperCase() + part.slice(1))
-              .join(" · ");
+    if (path === "/") {
+      document.title = "Nextjillion — Building Technology. Developing People.";
+      return;
+    }
+    const pageName = path.startsWith("/academy/courses/")
+      ? "Course Details"
+      : path
+          .split("/")
+          .filter(Boolean)
+          .map((part) => part[0].toUpperCase() + part.slice(1))
+          .join(" · ");
     document.title = `${pageName} — Nextjillion`;
   }, [path]);
   useEffect(() => {
